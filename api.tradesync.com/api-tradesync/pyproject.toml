@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "api-tradesync"
+version = "0.1.0"
+description = ""
+authors = ["prathik shetty <prathikkshetty15@gmail.com>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.2"
+google-generativeai = "^0.4.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
