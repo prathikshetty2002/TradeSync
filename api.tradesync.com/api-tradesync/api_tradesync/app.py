@@ -18,7 +18,7 @@ app = Flask(__name__)
 CORS(app)
 
 BASE_URL = "https://api.polygon.io/v2/aggs"
-
+NEWS_URL = "https://api.polygon.io/v2/reference/news"
 API_URL = "https://api-inference.huggingface.co/models/ProsusAI/finbert"
 headers = {"Authorization": "Bearer " +  os.getenv('API_KEY') }
 
@@ -36,6 +36,20 @@ def finbert_query():
     payload = {"inputs": inputs}
     output = query(payload)
     return jsonify(output)
+app.route('/stock-news/<string:stocksTicker>', methods=['GET'])
+def get_stock_news(stocksTicker):
+    # Construct the URL for the Polygon API request
+    url = f"{BASE_URL}/ticker/{stocksTicker}&limit=5?apiKey={os.getenv('POLYGON_API_KEY')}"
+     
+    response = requests.get(url)
+    
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Return the JSON response from Polygon API
+        return jsonify(response.json()), 200
+    else:
+        # Return an error message if something went wrong with the request
+        return jsonify({"error": "Failed to fetch data from Polygon API", "status_code": response.status_code}), response.status_code
 
 @app.route('/stock-aggregates/<string:stocksTicker>/<int:multiplier>/<string:timespan>/<string:from_date>/<string:to_date>', methods=['GET'])
 def get_stock_aggregates(stocksTicker, multiplier, timespan, from_date, to_date):
@@ -72,3 +86,6 @@ def get_stock_aggregates(stocksTicker, multiplier, timespan, from_date, to_date)
         
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
