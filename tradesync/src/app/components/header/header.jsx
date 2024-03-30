@@ -38,8 +38,8 @@ const Header = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const userData = docSnap.data();
-          setUserXP(userData.xp);
-          setUserXP(userData.xp || 0); // Set XP to 0 if userData.xp is undefined
+          setUserXP(userData.balance);
+          setUserXP(userData.balance || 0); // Set XP to 0 if userData.xp is undefined
         } else {
           // Handle case where user document doesn't exist
           setUserXP(0);
@@ -95,7 +95,7 @@ const Header = () => {
 
           {user && (
             <span className="text-sm flex font-bold px-4 py-1 rounded-full border border-black">
-              XP: {userXP}
+              Balance: {userXP}
             </span>
           )}
 
@@ -161,7 +161,7 @@ const Header = () => {
               </li> */}
               <li>
                 <a
-                  href="/Wallet"
+                  href="/wallet"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
                   Wallet
