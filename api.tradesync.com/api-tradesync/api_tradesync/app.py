@@ -16,7 +16,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 app = Flask(__name__)
 CORS(app)
-TICKER_URL = "https://api.polygon.io/v3/reference/tickers/"
+TICKER_URL = "https://api.polygon.io/v3/reference"
 BASE_URL = "https://api.polygon.io/v2/aggs"
 NEWS_URL = "https://api.polygon.io/v2/reference/news"
 API_URL = "https://api-inference.huggingface.co/models/ProsusAI/finbert"
@@ -36,6 +36,7 @@ def finbert_query():
     payload = {"inputs": inputs}
     output = query(payload)
     return jsonify(output)
+
 @app.route('/stock-news/<string:ticker>', methods=['GET'])
 def get_stock_news(ticker):
     # Construct the URL for the Polygon API request
@@ -86,9 +87,9 @@ def get_group_aggregates(date):
         return jsonify({"error": "Failed to fetch data from Polygon API", "status_code": response.status_code}), response.status_code
         
 @app.route('/stock-ticker/<string:tickerName>', methods=['GET'])
-def get_stock_news(tickerName):
+def get_stock_ticker(tickerName):
     # Construct the URL for the Polygon API request
-    url = f"{BASE_URL}/{tickerName}?&limit=5apiKey={os.getenv('POLYGON_API_KEY')}"
+    url = f"{TICKER_URL}/tickers/{tickerName}?apiKey={os.getenv('POLYGON_API_KEY')}"
     response = requests.get(url)
     if response.status_code == 200:
         # Return the JSON response from Polygon API
