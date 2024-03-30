@@ -60,7 +60,7 @@ const LoginWithGoogle = () => {
   const saveUserDataToFirestore = async (user) => {
     try {
       const docRef = doc(db, "users", user.uid);
-      const docSnap = await getDoc(docRef);
+      const docSnap = await setDoc(docRef);
 
       if (!docSnap.exists()) {
         await setDoc(docRef, {
@@ -117,7 +117,7 @@ const LoginWithGoogle = () => {
             <span className="text-gray-600 font-normal text-xl">
               to Unlock Best Features of{" "}
             </span>
-            Nutrisnap
+           Tradesync
           </div>
           {/* {loading ? <Spinner /> : ""} */}
 

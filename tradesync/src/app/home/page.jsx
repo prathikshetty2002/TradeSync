@@ -1,7 +1,8 @@
 import * as React from "react";
-
+import Right from './right';
 export default function MyComponent() {
   return (
+    <div className="flex">
     <div className="flex flex-col justify-center bg-neutral-900 bg-opacity-40 max-w-[282px]">
       <div className="flex flex-col items-start px-8 py-16 w-full bg-neutral-900 bg-opacity-40">
         <div className="flex gap-px items-center self-center pr-2.5">
@@ -201,6 +202,8 @@ export default function MyComponent() {
           </div>
         </div>
       </div>
+    </div>
+    <Right />
     </div>
   );
 }
