@@ -8,19 +8,13 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAbn4iCEy5W9rSO-UiOmd_8Vbp9nRlkRCI",
-
-  authDomain: "nutrisnap-e6cf9.firebaseapp.com",
-
-  projectId: "nutrisnap-e6cf9",
-
-  storageBucket: "nutrisnap-e6cf9.appspot.com",
-
-  messagingSenderId: "169090435206",
-
-  appId: "1:169090435206:web:45f0d96b834969ca236907",
-
-  measurementId: "G-VHL1DB60YR",
+  apiKey: "AIzaSyDYTO_r-5gbFgqDM7a5ykBtvgaMRa01ssU",
+  authDomain: "tradesync-7507f.firebaseapp.com",
+  projectId: "tradesync-7507f",
+  storageBucket: "tradesync-7507f.appspot.com",
+  messagingSenderId: "629393996092",
+  appId: "1:629393996092:web:33b397a33ab549e0c98639",
+  measurementId: "G-ER6THB3C4L"
 };
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -95,7 +89,7 @@ const Header = () => {
               />
             )}
             <h1 className="md:block font-bold text-xl max-md:text-sm">
-              {user ? `Welcome, ${user.displayName}` : "Nutrisnap"}
+              {user ? `Welcome, ${user.displayName}` : "Tradesync"}
             </h1>
           </a>
 
