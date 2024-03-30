@@ -126,7 +126,7 @@ const LoginWithGoogle = () => {
             className="w-full mt-4 text-center text-black font-medium px-4 py-3 border-gray-900 border-2 rounded-full items-center flex hover:bg-black hover:text-white cursor-pointer transition-all"
           >
             <img
-              src="/google.svg"
+              src="/Google.png"
               alt=""
               className="mr-12 max-sm:mr-4 "
               height={20}

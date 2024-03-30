@@ -8,14 +8,14 @@ import { gsap } from "gsap";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDYTO_r-5gbFgqDM7a5ykBtvgaMRa01ssU",
-    authDomain: "tradesync-7507f.firebaseapp.com",
-    projectId: "tradesync-7507f",
-    storageBucket: "tradesync-7507f.appspot.com",
-    messagingSenderId: "629393996092",
-    appId: "1:629393996092:web:33b397a33ab549e0c98639",
-    measurementId: "G-ER6THB3C4L"
-  };
+  apiKey: "AIzaSyDYTO_r-5gbFgqDM7a5ykBtvgaMRa01ssU",
+  authDomain: "tradesync-7507f.firebaseapp.com",
+  projectId: "tradesync-7507f",
+  storageBucket: "tradesync-7507f.appspot.com",
+  messagingSenderId: "629393996092",
+  appId: "1:629393996092:web:33b397a33ab549e0c98639",
+  measurementId: "G-ER6THB3C4L"
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -71,7 +71,8 @@ const ImageUploader = () => {
   }, []);
 
   const handleAddMoney = async () => {
-    setLoading(true);
+    
+   
     try {
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
@@ -82,7 +83,9 @@ const ImageUploader = () => {
         await updateDoc(userDocRef, { balance: newBalance });
         console.log("Money added successfully!");
         setShowModal(false);
-        setBalance(newBalance); // Update balance in state after adding money
+        setBalance(newBalance);
+        window.location.reload();                 // Update balance in state after adding money
+      
       }
     } catch (error) {
       console.error("Error adding money:", error);
@@ -126,23 +129,34 @@ const ImageUploader = () => {
   return (
     <>
       <div className="ball blur-3xl bg-purple-400/50 w-96 h-96 fixed top-0 left-0 rounded-full"></div>
-      <button onClick={() => setShowModal(true)}>Add Money to Wallet</button>
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
-            <h2>Add Money to Wallet</h2>
-            <input
-              type="number"
-              value={amountToAdd}
-              onChange={(e) => setAmountToAdd(e.target.value)}
-            />
-            <button onClick={handleAddMoney} disabled={loading}>
-              {loading ? "Adding..." : "Confirm"}
-            </button>
-          </div>
+      <div className= "bg-black mx-auto w-72 text-white p-3 rounded-xl ">
+ 
+        <div className="flex justify-center items-center">
+          <button onClick={() => setShowModal(true)}>Add Money to Wallet </button>
         </div>
-      )}
+        {showModal && (
+          <div className=" flex flex-col justify-center items-center py-3">
+
+            <div className=" flex gap-2 ">
+              <span className="close" onClick={() => setShowModal(false)}>X</span>
+              <input
+                className="rounded-md text-black"
+                type="number"
+               
+                value={amountToAdd}
+                onChange={(e) => setAmountToAdd(e.target.value)}
+              />
+              <button onClick={handleAddMoney} disabled={loading}>
+                {loading ? "Adding..." : "Confirm"}
+              </button>
+            </div>
+
+            <div className="my-2">
+              <div>Balance: {balance}</div>
+            </div>
+          </div>
+        )}
+      </div>
       <div className="bottom-navigation bottom-0 fixed w-full p-4 md:hidden bg-gradient-to-b from-white to-transparent backdrop-blur-md shadow-2xl h-fit">
         <div className="flex items-center justify-around md:hidden">
           <div className="flex flex-col items-center">
@@ -196,7 +210,7 @@ const ImageUploader = () => {
         </div>
       </div>
       {/* Display user's balance */}
-      <div>Balance: {balance}</div>
+
     </>
   );
 };
