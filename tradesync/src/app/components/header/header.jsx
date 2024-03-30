@@ -121,7 +121,7 @@ const Header = () => {
             <>
               <li>
                 <a
-                  href="/Home"
+                  href="/home"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
                   Home
@@ -129,7 +129,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  href="/Portfolio"
+                  href="/portfolio"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
                   Portfolio
@@ -137,7 +137,7 @@ const Header = () => {
               </li>
               <li>
                 <a
-                  href="/Strategy"
+                  href="/strategy"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
                   Strategy

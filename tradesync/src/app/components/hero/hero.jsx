@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
+import Newsletter from '../newsletter'
 import Link from "next/link";
 import { motion } from "framer-motion";
 const Hero = () => {
@@ -100,6 +101,7 @@ const Hero = () => {
         A playground for satisfying your Trading urges <br />
         <span className=" font-semibold"> Buy . Sell . Observe</span>
       </p>
+    
       <div className="mx-auto mt-4 yoga flex-col">
         <div className="">
           <Link href="/login">
@@ -142,7 +144,7 @@ const Hero = () => {
               View Insights
             </div>
           </a>
-
+        
           <motion.div animate={floatAnimation} while={{ y: 0 }}>
             <Image
               src="/Crypto trading and market research.png"
@@ -178,6 +180,7 @@ const Hero = () => {
               Download Video
             </button>
           </div> */}
+      <Newsletter />
         </div>
       </div>
     </div>

@@ -128,7 +128,7 @@ const Footer = () => {
                     alt=""
                     className="w-8 mr-2 rounded-full "
                   />
-                  Tarun Shrivastav
+                  Utsavraj singh
                 </p>{" "}
               </a>
               <a target="_blank" href="https://rizzabh.xyz">
@@ -138,7 +138,17 @@ const Footer = () => {
                     alt=""
                     className="w-8 mr-2 rounded-full"
                   />
-                  Rishabh Pandey
+                 Ayush khalate
+                </p>
+              </a>
+              <a target="_blank" href="">
+                <p className="mb-4 flex items-center justify-center md:justify-start">
+                  <img
+                    src="/rishabh.jpeg"
+                    alt=""
+                    className="w-8 mr-2 rounded-full"
+                  />
+                  bhumi jain
                 </p>
               </a>
             </div>

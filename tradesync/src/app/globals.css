@@ -73,6 +73,18 @@ background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .stock-card {
+    width: calc(33.33% - 20px); /* Adjust width as needed */
+  }
+}
+
+
 
 .nutricon{
    /* text gradient from webkit */
