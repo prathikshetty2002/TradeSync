@@ -68,21 +68,21 @@ def get_stock_aggregates(stocksTicker, multiplier, timespan, from_date, to_date)
         return jsonify({"error": "Failed to fetch data from Polygon API", "status_code": response.status_code}), response.status_code
 
 
-# @app.route('/group-aggregates/<string:date>', methods=['GET'])
-# def get_group_aggregates(stocksTicker, multiplier, timespan, from_date, to_date):
-#     # Construct the URL for the Polygon API request
-#     url = f"{BASE_URL}/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from_date}/{to_date}?apiKey={os.getenv('POLYGON_API_KEY')}"
+@app.route('/group-aggregates/<string:date>', methods=['GET'])
+def get_group_aggregates(date):
+    # Construct the URL for the Polygon API request
+    url = f"{BASE_URL}/grouped/locale/us/market/stocks/{date}?limit=10&apiKey={os.getenv('POLYGON_API_KEY')}"
     
-#     # Make the request to the Polygon API
-#     response = requests.get(url)
+    # Make the request to the Polygon API
+    response = requests.get(url)
     
-#     # Check if the request was successful
-#     if response.status_code == 200:
-#         # Return the JSON response from Polygon API
-#         return jsonify(response.json()), 200
-#     else:
-#         # Return an error message if something went wrong with the request
-#         return jsonify({"error": "Failed to fetch data from Polygon API", "status_code": response.status_code}), response.status_code
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Return the JSON response from Polygon API
+        return jsonify(response.json()), 200
+    else:
+        # Return an error message if something went wrong with the request
+        return jsonify({"error": "Failed to fetch data from Polygon API", "status_code": response.status_code}), response.status_code
         
 if __name__ == '__main__':
     app.run(debug=True)
