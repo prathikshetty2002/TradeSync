@@ -36,10 +36,11 @@ def finbert_query():
     payload = {"inputs": inputs}
     output = query(payload)
     return jsonify(output)
-app.route('/stock-news/<string:stocksTicker>', methods=['GET'])
-def get_stock_news(stocksTicker):
+@app.route('/stock-news/<string:ticker>', methods=['GET'])
+def get_stock_news(ticker):
     # Construct the URL for the Polygon API request
-    url = f"{BASE_URL}/ticker/{stocksTicker}&limit=5?apiKey={os.getenv('POLYGON_API_KEY')}"
+    limit = request.args.get('limit', '5')
+    url = f"{NEWS_URL}?ticker={ticker}&limit={limit}&apiKey={os.getenv('POLYGON_API_KEY')}"
      
     response = requests.get(url)
     
@@ -88,13 +89,14 @@ def get_group_aggregates(date):
 def get_stock_news(tickerName):
     # Construct the URL for the Polygon API request
     url = f"{BASE_URL}/{tickerName}?&limit=5apiKey={os.getenv('POLYGON_API_KEY')}"
-    
+    response = requests.get(url)
     if response.status_code == 200:
         # Return the JSON response from Polygon API
         return jsonify(response.json()), 200
     else:
         # Return an error messaage
-        
+        return jsonify({"error": "Failed to fetch data from Polygon API", "status_code": response.status_code}), response.status_code
+
 if __name__ == '__main__':
     app.run(debug=True)
 
