@@ -75,16 +75,13 @@ const Footer = () => {
                   src="/logo.png"
                   height={50}
                   width={50}
-                  alt="nutrisnap"
+                  alt="tradesync"
                   className="px-2 f"
                 />
-                Nutrisnap
+                Tradesync
               </h6>
               <p>
-                Welcome to NutriSnap, your go-to destination for personalized
-                nutrition and wellness solutions. At NutriSnap, we believe in
-                the transformative power of healthy living and the impact it can
-                have on your overall well-being.
+                Tradesync is a One-stop solution to create, manage and grow your Portfolio with AI powered strategy.
               </p>
             </div>
             <div className="px-10">
@@ -97,33 +94,18 @@ const Footer = () => {
                 </a>
               </p>
               <p className="mb-4">
-                <a href="/foodsnap" className=" text-black">
-                  Foodsnap
+                <a href="/Portfolio" className=" text-black">
+                  Portfolio
                 </a>
               </p>
               <p className="mb-4">
-                <a href="/bodysnap" className=" text-black">
-                  Bodysnap
+                <a href="/Strategy" className=" text-black">
+                  Strategy
                 </a>
               </p>
               <p className="mb-4">
-                <a href="/skinsnap" className=" text-black">
-                  Skinsnap
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="/wearos" className=" text-black">
-                  WearOS
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="/nutricon" className=" text-black">
-                  Nutricon
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="/pricings" className=" text-black">
-                  Pricings
+                <a href="/Waller" className=" text-black">
+                  Wallet
                 </a>
               </p>
             </div>
@@ -146,7 +128,7 @@ const Footer = () => {
                     alt=""
                     className="w-8 mr-2 rounded-full "
                   />
-                  Tarun Shrivastav
+                  Utsavraj singh
                 </p>{" "}
               </a>
               <a target="_blank" href="https://rizzabh.xyz">
@@ -156,7 +138,17 @@ const Footer = () => {
                     alt=""
                     className="w-8 mr-2 rounded-full"
                   />
-                  Rishabh Pandey
+                 Ayush khalate
+                </p>
+              </a>
+              <a target="_blank" href="">
+                <p className="mb-4 flex items-center justify-center md:justify-start">
+                  <img
+                    src="/rishabh.jpeg"
+                    alt=""
+                    className="w-8 mr-2 rounded-full"
+                  />
+                  bhumi jain
                 </p>
               </a>
             </div>
@@ -167,10 +159,10 @@ const Footer = () => {
           <span>© 2023 Copyright:</span>
           <a
             className="font-semibold text-black"
-            href="https://github.com/prathikshetty2002/NutriSnap"
+            href="https://github.com/prathikshetty2002/Codeshastra_brockband.git"
           >
             {" "}
-            BrockBand
+            brockband
           </a>
         </div>
       </footer>
