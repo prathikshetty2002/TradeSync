@@ -84,7 +84,7 @@ const Hero = () => {
     <div className="Hero mt-2">
       <div className="ball bg-violet-400/50 w-96 h-96 fixed top-0 left-0 rounded-full"></div>
       <div className="text-sm text-center max-sm:text-xs text-white px-4 py-2 m-4 border border-gray-600 bg-black rounded-full w-fit mx-auto backdrop-blur-sm bg-opacity-90">
-        Fitness Playground ⛹️‍♂️{" "}
+        Trading Playground ⛹️‍♂️{" "}
       </div>
 
       <motion.div
@@ -93,12 +93,12 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        Think of <span className="text-black italic font-normal">Fitness</span>{" "}
-        <br /> Think of <span className="text-stroke">us</span>
+        Ever thought of <span className="text-black italic font-normal">Trading</span>{" "}
+        <br /> We are <span className="text-stroke">here</span>
       </motion.div>
       <p className="text-sm text-gray-400 text-center mt-1">
-        A playground for all of your fitness needs <br />
-        <span className=" font-semibold"> Web . App . Watch</span>
+        A playground for satisfying your Trading urges <br />
+        <span className=" font-semibold"> Buy . Sell . Observe</span>
       </p>
       <div className="mx-auto mt-4 yoga flex-col">
         <div className="">
@@ -112,7 +112,7 @@ const Hero = () => {
             >
               {" "}
               
-              Snap in
+              Dive in
               <div className="next-svg ml-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -139,13 +139,13 @@ const Hero = () => {
           </div> */}
           <a href="/scoreboard">
             <div className="px-4 py-2 rounded-full mx-auto text-center border border-black w-fit m-4 cursor-pointer">
-              View Scoreboard
+              View Insights
             </div>
           </a>
 
           <motion.div animate={floatAnimation} while={{ y: 0 }}>
             <Image
-              src="/header 2.webp"
+              src="/Crypto trading and market research.png"
               alt=""
               height={600}
               width={600}
