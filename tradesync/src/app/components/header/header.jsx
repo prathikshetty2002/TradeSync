@@ -81,7 +81,7 @@ const Header = () => {
               />
             ) : (
               <img
-                src="/logo.png"
+                src="/Positive Dynamic.png"
                 alt=""
                 height={30}
                 width={30}
@@ -101,7 +101,7 @@ const Header = () => {
 
           {user ? (
             <button onClick={handleLogout}>
-              <img src="/exit.png" height={30} width={30} alt="" />
+              <img src="/Emergency Exit.png" height={30} width={30} alt="" />
             </button>
           ) : (
             ""
@@ -121,26 +121,26 @@ const Header = () => {
             <>
               <li>
                 <a
-                  href="/foodsnap"
+                  href="/Home"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Food
+                  Home
                 </a>
               </li>
               <li>
                 <a
-                  href="/bodysnap"
+                  href="/Portfolio"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Body
+                  Portfolio
                 </a>
               </li>
               <li>
                 <a
-                  href="/skinsnap"
+                  href="/Strategy"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Skin
+                  Strategy
                 </a>
               </li>
               {/* <li>
@@ -161,10 +161,10 @@ const Header = () => {
               </li> */}
               <li>
                 <a
-                  href="/scoreboard"
+                  href="/Wallet"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Scoreboard
+                  Wallet
                 </a>
               </li>
             </>
