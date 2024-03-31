@@ -84,6 +84,22 @@ background-clip: text;
   }
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 200px; /* Adjust as needed */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
 
 
 .nutricon{
