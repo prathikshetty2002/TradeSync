@@ -72,7 +72,7 @@ const Footer = () => {
             <div>
               <h6 className="mb-4 flex items-center justify-center uppercase md:justify-start font-bold">
                 <img
-                  src="/logo.png"
+                  src="Positive Dynamic.png"
                   height={50}
                   width={50}
                   alt="tradesync"
