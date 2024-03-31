@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc,  setDoc,getDoc , deleteDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Portfolio = () => {
@@ -69,6 +69,40 @@ const Portfolio = () => {
     fetchUserData();
   }, [db, auth]);
 
+
+  const sellShare = async (ticker) => {
+    try {
+        const userDocRef = doc(db, "users", auth.currentUser.uid);
+        
+        // Retrieve the current user document
+        const userDocSnap = await getDoc(userDocRef);
+        if (userDocSnap.exists()) {
+            const userData = userDocSnap.data();
+            
+            // Retrieve the price of the sold share
+            const soldSharePrice = userData.stocks[ticker].price;
+            
+            // Delete the sold share from the stocks object
+            delete userData.stocks[ticker];
+            
+            // Calculate the new balance
+            const newBalance = userData.balance + soldSharePrice;
+            
+            // Update the user document with the new balance and without the sold share
+            await setDoc(userDocRef, { ...userData, balance: newBalance });
+
+
+            window.location.reload();
+        } else {
+            console.error("User document does not exist");
+        }
+    } catch (error) {
+        console.error("Error selling share:", error);
+        // Handle error
+    }
+};
+
+
   // Function to calculate total invested based on user's stock data
   const calculateTotalInvested = (stocks) => {
     let total = 0;
@@ -110,6 +144,7 @@ const Portfolio = () => {
       <div className="justify-center items-start self-start px-11 py-7 rounded-xl shadow-[46px_46px_40px_rgba(0,0,0,0.25)] max-md:px-5">
         {user.stocks[ticker].quantity}
       </div>
+      <button onClick={() => sellShare(ticker)}>Sell Now</button>
     </div>
   ))}
 </div>
