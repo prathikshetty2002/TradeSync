@@ -14,7 +14,7 @@ const Bot = () => {
         onClick={handleClick}
         className="bg-violet-50 border-violet-600 shadow-xl w-12 h-12 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition-all text-white"
       >
-        <img src="/bot.png" height={40} width={40} alt="" />
+        <img src="/Bot.png" height={30} width={30} alt="" />
       </div>
       <div
         className={`absolute bottom-[31rem] max-sm:bottom-[30rem] m-8 p-4 cursor-pointer rounded-lg ${
