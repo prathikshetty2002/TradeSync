@@ -28,12 +28,13 @@ def query(payload):
 
 @app.route('/finbert-query', methods=['GET'])
 def finbert_query():
+    ticker = request.args.get('news')
     # Ensure there's a JSON payload
-    if not request.json or 'inputs' not in request.json:
-        return jsonify({'error': 'No input provided'}), 400
+    if not ticker:
+        return jsonify({'error': 'No ticker provided'}), 400
     
-    inputs = request.json['inputs']
-    payload = {"inputs": inputs}
+    # inputs = request.json['inputs']
+    payload = {"inputs": ticker}
     output = query(payload)
     return jsonify(output)
 
