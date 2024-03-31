@@ -32,6 +32,9 @@ export default function MyComponent() {
   ]);
   const [searchTermsta, setSearchTermsta] = useState("");
   const [fromDate, setFromDate] = useState("");
+  
+  const [stocksent, setStockSent] = useState([]);
+  
   const [datafromspan, setDatafromspan] = useState([]);
   const [toDate, setToDate] = useState("");
   const [timespan, setTimespan] = useState("day");
@@ -153,13 +156,26 @@ export default function MyComponent() {
   const fetchStockNews = async (companyCode) => {
     try {
       const response = await axios.get(`http://localhost:5000/stock-news/${companyCode}`);
-      setStockNews(response.data.results); 
+      setStockNews(response.data.results);
+      console.log(response.data.results[0].description) 
+      var a = `${response.data.results[0].description}`; 
+      await fetchStockSe(a)
       console.log(response.data.results);// Set the fetched stock news data in state
     } catch (error) {
       console.error("Error fetching stock news:", error);
     }
   };
 
+
+  const fetchStockSe = async (companyCode) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/finbert-query?ticker=${companyCode}`);
+      setStockSent(response.data[0]); 
+      console.log(response.data);// Set the fetched stock news data in state
+    } catch (error) {
+      console.error("Error fetching stock news:", error);
+    }
+  };
 
   const fetchStockData = async (companyCode) => {
     try {
@@ -347,7 +363,18 @@ export default function MyComponent() {
 </div>
 
 
-
+<div className="flex justify-center items-center font-bold ">
+    
+      <div>
+      <h2>Sentiment Analysis Results</h2>
+        {stocksent.map((sentiment, index) => (
+          <div key={index} style={{ color: getSentimentColor(sentiment.label) }}>
+            <p>{sentiment.label}</p>
+            <p>Score: {sentiment.score}</p>
+          </div>
+        ))}
+      </div>
+    </div>
 
 {companyData && (
   <div className="company-info md:mx-20 mx-10 md:my-20 rounded-lg shadow-lg bg-white p-6">
@@ -391,3 +418,15 @@ export default function MyComponent() {
     </div>
   );
 }
+const getSentimentColor = (label) => {
+  switch (label) {
+    case "positive":
+      return "green";
+    case "negative":
+      return "red";
+    case "neutral":
+      return "gray";
+    default:
+      return "black";
+  }
+};
