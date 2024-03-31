@@ -8,19 +8,13 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAbn4iCEy5W9rSO-UiOmd_8Vbp9nRlkRCI",
-
-  authDomain: "nutrisnap-e6cf9.firebaseapp.com",
-
-  projectId: "nutrisnap-e6cf9",
-
-  storageBucket: "nutrisnap-e6cf9.appspot.com",
-
-  messagingSenderId: "169090435206",
-
-  appId: "1:169090435206:web:45f0d96b834969ca236907",
-
-  measurementId: "G-VHL1DB60YR",
+  apiKey: "AIzaSyDYTO_r-5gbFgqDM7a5ykBtvgaMRa01ssU",
+  authDomain: "tradesync-7507f.firebaseapp.com",
+  projectId: "tradesync-7507f",
+  storageBucket: "tradesync-7507f.appspot.com",
+  messagingSenderId: "629393996092",
+  appId: "1:629393996092:web:33b397a33ab549e0c98639",
+  measurementId: "G-ER6THB3C4L"
 };
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -44,8 +38,8 @@ const Header = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const userData = docSnap.data();
-          setUserXP(userData.xp);
-          setUserXP(userData.xp || 0); // Set XP to 0 if userData.xp is undefined
+          setUserXP(userData.balance);
+          setUserXP(userData.balance || 0); // Set XP to 0 if userData.xp is undefined
         } else {
           // Handle case where user document doesn't exist
           setUserXP(0);
@@ -87,7 +81,7 @@ const Header = () => {
               />
             ) : (
               <img
-                src="/logo.png"
+                src="/Positive Dynamic.png"
                 alt=""
                 height={30}
                 width={30}
@@ -95,19 +89,19 @@ const Header = () => {
               />
             )}
             <h1 className="md:block font-bold text-xl max-md:text-sm">
-              {user ? `Welcome, ${user.displayName}` : "Nutrisnap"}
+              {user ? `Welcome, ${user.displayName}` : "Tradesync"}
             </h1>
           </a>
 
           {user && (
             <span className="text-sm flex font-bold px-4 py-1 rounded-full border border-black">
-              XP: {userXP}
+              Balance: {userXP}
             </span>
           )}
 
           {user ? (
             <button onClick={handleLogout}>
-              <img src="/exit.png" height={30} width={30} alt="" />
+              <img src="/Emergency Exit.png" height={30} width={30} alt="" />
             </button>
           ) : (
             ""
@@ -127,26 +121,26 @@ const Header = () => {
             <>
               <li>
                 <a
-                  href="/foodsnap"
+                  href="/home"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Food
+                  Home
                 </a>
               </li>
               <li>
                 <a
-                  href="/bodysnap"
+                  href="/portfolio"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Body
+                  Portfolio
                 </a>
               </li>
               <li>
                 <a
-                  href="/skinsnap"
+                  href="/strategy"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Skin
+                  Strategy
                 </a>
               </li>
               {/* <li>
@@ -167,10 +161,10 @@ const Header = () => {
               </li> */}
               <li>
                 <a
-                  href="/scoreboard"
+                  href="/wallet"
                   className="max-md:hidden rounded-full px-2 py-2 -ml-4 text-black hover:bg-gray-300 transition duration-300 ease-in-out"
                 >
-                  Scoreboard
+                  Wallet
                 </a>
               </li>
             </>
